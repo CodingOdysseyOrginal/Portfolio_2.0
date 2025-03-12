@@ -25,7 +25,7 @@ export default function Navbar() {
                 Christopher O&apos;Connor
             </motion.h1>
 
-            {/* Navigation Links */}
+            
             <motion.ul
                 className="flex space-x-8 text-white text-xl font-semibold"
                 initial="hidden"
@@ -48,10 +48,10 @@ export default function Navbar() {
                         transition={{ duration: 0.5, ease: "easeOut" }}
                     >
                         <Link
-                            to={item.toLowerCase()} // Scrolls to section with matching id
+                            to={item.toLowerCase()} 
                             smooth={true}
-                            duration={800} // 800ms scroll duration
-                            offset={-70} // Adjust for fixed navbar
+                            duration={800}
+                            offset={-70} 
                             className="relative hover:text-gray-300 transition duration-300 after:block after:h-1 after:bg-white after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:scale-110 cursor-pointer"
                         >
                             {item}

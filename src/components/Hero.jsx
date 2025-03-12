@@ -10,7 +10,7 @@ export default function Hero() {
   const [charIndex, setCharIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
 
-  // Ref for tracking section visibility
+ 
   const sectionRef = useRef(null);
 
   useEffect(() => {

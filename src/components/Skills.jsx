@@ -1,6 +1,25 @@
 import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaDatabase, FaDocker, FaAws, FaJs, FaCuttlefish, FaHtml5, FaCss3Alt, FaGitAlt, FaClipboardList, FaServer, FaLaptopCode } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiVitest, SiExpress } from "react-icons/si";
+import {
+  FaReact,
+  FaNodeJs,
+  FaDatabase,
+  FaDocker,
+  FaAws,
+  FaJs,
+  FaCuttlefish,
+  FaHtml5,
+  FaCss3Alt,
+  FaGitAlt,
+  FaClipboardList,
+  FaServer,
+  FaLaptopCode,
+} from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiVitest,
+  SiExpress,
+} from "react-icons/si";
 
 export default function Skills() {
   const skills = [
@@ -16,7 +35,7 @@ export default function Skills() {
     { name: "Git", icon: <FaGitAlt size={50} /> },
     { name: "REST APIs", icon: <FaServer size={50} /> },
     { name: "Express", icon: <SiExpress size={50} /> },
-    { name: "Agile", icon: <FaClipboardList size={50} /> }
+    { name: "Agile", icon: <FaClipboardList size={50} /> },
   ];
 
   const learning = [
@@ -27,26 +46,29 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="bg-black text-white min-h-screen flex flex-col justify-center items-center px-8 pt-32"> {/* Adjusted padding */}
-      {/* Animated Heading */}
+    <section
+      id="skills"
+      className="bg-black text-white min-h-screen flex flex-col justify-center items-center px-8 pt-32"
+    >
       <motion.h1
         className="text-6xl font-extrabold mb-8 leading-tight text-gray-300"
         initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
+        viewport={{ once: true }}
       >
         Skills
       </motion.h1>
 
-      {/* Animated Skill Icons */}
-      <motion.div 
+      <motion.div
         className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12"
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
         variants={{
           hidden: { opacity: 0, y: 50 },
-          visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.3 } }
+          visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.3 } },
         }}
+        viewport={{ once: true }}
       >
         {skills.map((skill, index) => (
           <motion.div
@@ -54,7 +76,7 @@ export default function Skills() {
             className="flex flex-col items-center"
             variants={{
               hidden: { opacity: 0, y: 50 },
-              visible: { opacity: 1, y: 0 }
+              visible: { opacity: 1, y: 0 },
             }}
             whileHover={{ scale: 1.2, rotate: 5 }}
             transition={{ duration: 0.3 }}
@@ -65,23 +87,24 @@ export default function Skills() {
         ))}
       </motion.div>
 
-      {/* Currently Learning Section */}
       <motion.h2
         className="text-4xl font-extrabold mt-16 mb-7 text-gray-300"
         initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
+        viewport={{ once: true }}
       >
         Currently Learning
       </motion.h2>
-      <motion.div 
+      <motion.div
         className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12"
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
         variants={{
           hidden: { opacity: 0, y: 50 },
-          visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.3 } }
+          visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.3 } },
         }}
+        viewport={{ once: true }}
       >
         {learning.map((skill, index) => (
           <motion.div
@@ -89,7 +112,7 @@ export default function Skills() {
             className="flex flex-col items-center"
             variants={{
               hidden: { opacity: 0, y: 50 },
-              visible: { opacity: 1, y: 0 }
+              visible: { opacity: 1, y: 0 },
             }}
             whileHover={{ scale: 1.2, rotate: 5 }}
             transition={{ duration: 0.3 }}

@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const projectData = {
   writers_realm: {
     title: "Writer's Realm",
     description: "A platform for writers to share and collaborate.",
     techStack: ["Next.js", "Node.js", "MongoDB", "Docker"],
-    videoSrc: "/videos/writers_realm.mp4",
+    imageSrc: "/images/writers_realm.jpg",  // Updated to imageSrc
     githubLink: "https://github.com/CodingOdysseyOrginal/writers_realm",
     liveDemo: "https://writersrealm.app"
   },
@@ -13,17 +14,17 @@ const projectData = {
     title: "DevOps Tutorial",
     description: "A step-by-step DevOps guide with real-world examples.",
     techStack: ["AWS", "Docker", "GitHub Actions"],
-    videoSrc: "/videos/devops_tutorial.mp4",
+    imageSrc: "/images/devops_tutorial.jpg",  // Updated to imageSrc
     githubLink: "https://github.com/CodingOdysseyOrginal/devops_tutorial",
     liveDemo: "https://devops-tutorial.com"
   },
-  Group_project: {
-    title: "DevOps Tutorial",
-    description: "A step-by-step DevOps guide with real-world examples.",
-    techStack: ["AWS", "Docker", "GitHub Actions"],
-    videoSrc: "/videos/devops_tutorial.mp4",
-    githubLink: "https://github.com/CodingOdysseyOrginal/devops_tutorial",
-    liveDemo: "https://devops-tutorial.com"
+  group_project: {
+    title: "Group Project",
+    description: "A collaborative project showcasing teamwork and skills.",
+    techStack: ["React", "Node.js", "MongoDB"],
+    imageSrc: "/images/group_project.jpg",  // Updated to imageSrc
+    githubLink: "https://github.com/CodingOdysseyOrginal/group_project",
+    liveDemo: "https://group-project.com"
   }
 };
 
@@ -34,11 +35,15 @@ export default function ProjectPage() {
   if (!project) return <h1 className="text-white text-center mt-20">Project Not Found</h1>;
 
   return (
-    <section className="bg-black text-white h-[150vh] flex flex-col items-center px-8 pt-16">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="bg-black text-white h-screen flex flex-col items-center px-8 pt-20"
+    >
       <h1 className="text-5xl font-bold mb-4">{project.title}</h1>
-      <video className="w-full max-w-2xl rounded-lg mb-6" controls>
-        <source src={project.videoSrc} type="video/mp4" />
-      </video>
+     
+      <img className="w-full max-w-4xl rounded-lg mb-6" src={project.imageSrc} alt={project.title} />
       <p className="text-xl max-w-3xl text-center mb-6">{project.description}</p>
 
       <div className="mb-4">
@@ -51,13 +56,23 @@ export default function ProjectPage() {
       </div>
 
       <div className="flex space-x-4">
-        <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="btn">
+        <a
+          href={project.githubLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-300"
+        >
           GitHub
         </a>
-        <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="btn">
+        <a
+          href={project.liveDemo}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors duration-300"
+        >
           Live Demo
         </a>
       </div>
-    </section>
+    </motion.section>
   );
 }
