@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { FaArrowDown } from "react-icons/fa";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import Picture from "../assets/me.jpg";
 
 export default function Hero() {
@@ -9,10 +9,9 @@ export default function Hero() {
   const [displayText, setDisplayText] = useState("");
   const [charIndex, setCharIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
-  
+
   // Ref for tracking section visibility
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: false, margin: "-20% 0px -20% 0px" });
 
   useEffect(() => {
     const typingInterval = setInterval(() => {
@@ -33,44 +32,67 @@ export default function Hero() {
   }, [charIndex, index]);
 
   const scrollToSection = () => {
-    const section = document.getElementById("skillsSection");
+    const section = document.getElementById("skills");
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <motion.section
+    <section
+      id="about"
       ref={sectionRef}
       className="bg-black text-white min-h-[90vh] flex flex-col justify-start items-center px-8 pt-16"
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      style={{ backgroundColor: "black" }} 
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-7xl w-full">
         <div className="text-center md:text-left">
-          <h1 className="text-6xl font-extrabold mb-4 leading-tight">
-            Hi, I'm <span className="text-gray-300">Christopher O'Connor</span>
-          </h1>
+          <motion.h1 
+            className="text-6xl font-extrabold mb-4 leading-tight"
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            Hi, I&apos;m <span className="text-gray-300">Christopher O&apos;Connor</span>
+          </motion.h1>
+          
           <p className="text-2xl font-semibold text-gray-300 mb-6">
             I am a{" "}
-            <motion.span key={index} className="text-white">
+            <motion.span 
+              key={index} 
+              className="text-white"
+              initial={{ x: -50, opacity: 0 }} 
+              animate={{ x: 0, opacity: 1 }} 
+              transition={{ duration: 0.5 }}
+            >
               {displayText}
             </motion.span>
           </p>
-          <p className="text-xl mb-4 leading-relaxed">
-            I'm a passionate software developer with experience in full-stack web development. I specialize in building robust, scalable applications using technologies like JavaScript, Node.js, and React.
-          </p>
-          <p className="text-xl mb-4 leading-relaxed">
-            With a background in problem-solving and a focus on clean, efficient code, I'm eager to contribute to meaningful projects that push the boundaries of web development.
-          </p>
+
+          <motion.p 
+            className="text-xl mb-4 leading-relaxed"
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            I&apos;m a passionate software developer with experience in full-stack web development. I specialize in building robust, scalable applications using technologies like JavaScript, Node.js, and React.
+          </motion.p>
+
+          <motion.p 
+            className="text-xl mb-4 leading-relaxed"
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7 }}
+          >
+            With a background in problem-solving and a focus on clean, efficient code, I&apos;m eager to contribute to meaningful projects that push the boundaries of web development.
+          </motion.p>
         </div>
 
         <motion.div
           className="flex justify-center"
-          initial={{ opacity: 0, rotate: -180, scale: 0.5 }}
-          animate={isInView ? { opacity: 1, rotate: 0, scale: 1 } : { opacity: 0, scale: 0.5 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
         >
           <img 
             src={Picture} 
@@ -80,28 +102,25 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="mt-8 relative">
-        <motion.button
+      <div className="mt-8 relative flex justify-center items-center">
+        <button
           onClick={scrollToSection}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           className="text-white cursor-pointer transition duration-300 relative z-10"
-          whileHover={{ scale: 1.1 }}
         >
           <FaArrowDown size={50} />
-        </motion.button>
+        </button>
 
         {hovered && (
           <motion.div
-            className="absolute inset-0 flex justify-center items-center z-0"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1.3, opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="w-15 h-15 border-2 border-white rounded-full absolute"></div>
-          </motion.div>
+          className="absolute w-20 h-20 border-2 border-white rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        />
         )}
       </div>
-    </motion.section>
+    </section>
   );
 }

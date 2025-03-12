@@ -15,7 +15,7 @@ export default function Footer() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
       >
-        Made by <span className="text-gray-300 font-bold">Christopher O'Connor</span>
+        Made by <span className="text-gray-300 font-bold">Christopher O&apos;Connor</span>
       </motion.p>
 
       <div className="flex space-x-6">

@@ -27,7 +27,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skillsSection" className="bg-black text-white min-h-screen flex flex-col justify-center items-center px-8 pt-32"> {/* Adjusted padding */}
+    <section id="skills" className="bg-black text-white min-h-screen flex flex-col justify-center items-center px-8 pt-32"> {/* Adjusted padding */}
       {/* Animated Heading */}
       <motion.h1
         className="text-6xl font-extrabold mb-8 leading-tight text-gray-300"

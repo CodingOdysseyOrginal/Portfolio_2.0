@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 
 export default function Navbar() {
     return (
@@ -46,12 +47,15 @@ export default function Navbar() {
                         }}
                         transition={{ duration: 0.5, ease: "easeOut" }}
                     >
-                        <a
-                            href={`#${item.toLowerCase()}`}
-                            className="relative hover:text-gray-300 transition duration-300 after:block after:h-1 after:bg-white after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:scale-110"
+                        <Link
+                            to={item.toLowerCase()} // Scrolls to section with matching id
+                            smooth={true}
+                            duration={800} // 800ms scroll duration
+                            offset={-70} // Adjust for fixed navbar
+                            className="relative hover:text-gray-300 transition duration-300 after:block after:h-1 after:bg-white after:w-0 hover:after:w-full after:transition-all after:duration-300 hover:scale-110 cursor-pointer"
                         >
                             {item}
-                        </a>
+                        </Link>
                     </motion.li>
                 ))}
             </motion.ul>

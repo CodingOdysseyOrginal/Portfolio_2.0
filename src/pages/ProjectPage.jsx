@@ -16,6 +16,14 @@ const projectData = {
     videoSrc: "/videos/devops_tutorial.mp4",
     githubLink: "https://github.com/CodingOdysseyOrginal/devops_tutorial",
     liveDemo: "https://devops-tutorial.com"
+  },
+  Group_project: {
+    title: "DevOps Tutorial",
+    description: "A step-by-step DevOps guide with real-world examples.",
+    techStack: ["AWS", "Docker", "GitHub Actions"],
+    videoSrc: "/videos/devops_tutorial.mp4",
+    githubLink: "https://github.com/CodingOdysseyOrginal/devops_tutorial",
+    liveDemo: "https://devops-tutorial.com"
   }
 };
 
